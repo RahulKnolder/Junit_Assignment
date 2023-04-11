@@ -2,6 +2,9 @@ package juint_4;
 
 public class StringUtils {
     public static String reverse(String inputString) {
+        if(inputString==null){
+            inputString="";
+        }
         String reversedInputStrig = "";
         for (int indexOfInputString = inputString.length() - 1; indexOfInputString >= 0; indexOfInputString--) {
             reversedInputStrig = reversedInputStrig.concat(String.valueOf(inputString.charAt(indexOfInputString)));
