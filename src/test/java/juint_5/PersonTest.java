@@ -14,14 +14,14 @@ public class PersonTest {
     }
 
     @Test
-    public void testGetName_NotNullValues() {
+    public void test_getName_with_notNullValues() {
         //test getname with not null values
         person.setName("rahul");
         assertNotNull(person.getName());
     }
 
     @Test
-    public void testGetName_nullValue() {
+    public void testGetName_with_nullValue() {
         // Test the getter method for a null value
         person.setName(null);
         assertEquals("", person.getName());
@@ -29,21 +29,21 @@ public class PersonTest {
     }
 
     @Test
-    public void testGetName_WhiteSpaces() {
+    public void test_getName_with_WhiteSpaces() {
         //testing getname with white spaces
         person.setName("         ");
         assertEquals("", person.getName());
     }
 
     @Test
-    public void testGetAge_nonNullValue() throws InvalidAgeException {
+    public void test_getAge_with_nonNullValue() throws InvalidAgeException {
         // Test the getter method for a non-null value
         person.setAge(56);
         assertNotNull(person.getAge());
     }
 
     @Test
-    public void testGetAge_nullValue() throws InvalidAgeException {
+    public void test_getAge_with_nullValue() throws InvalidAgeException {
         // Test the getter method for a null value
         InvalidAgeException e = assertThrows(InvalidAgeException.class, () -> {
             person.setAge(null);
@@ -53,14 +53,14 @@ public class PersonTest {
 
 
     @Test
-    public void testGetEmail_nonNullValue() {
+    public void test_getEmail_with_nonNullValue() {
         // Test the getEmail() method for a non-null value
         person.setEmail("john.doe@example.com");
         assertNotNull(person.getEmail());
     }
 
     @Test
-    public void testGetEmail_nullValue() {
+    public void test_getEmail_with_nullValue() {
         // Test the getEmail() method for a null value
         person.setEmail(null);
         String email = person.getEmail();
@@ -69,28 +69,28 @@ public class PersonTest {
     }
 
     @Test
-    public void testGetEmail_validValue() {
+    public void test_getEmail_with_validValue() {
         //test for a valid value
         person.setEmail("john.doe@example.com");
         assertEquals("john.doe@example.com", person.getEmail());
     }
 
     @Test
-    public void testGetEmail_invalidInput() {
+    public void test_getEmail_with_invalidInput() {
         //testing with invalidInput
         person.setEmail("rahul@@gmai.com");
         assertEquals("", person.getEmail());
     }
 
     @Test
-    public void testGetEmail_whiteSpaces() {
+    public void test_getEmail_with_whiteSpaces() {
         //for white spaces
         person.setEmail("   ");
         assertEquals("", person.getEmail());
     }
 
     @Test
-    public void testNegativeAge() {
+    public void test_age_with_negative_values() {
         InvalidAgeException e = assertThrows(InvalidAgeException.class, () -> {
             person.setAge(-10);
         });
@@ -99,7 +99,7 @@ public class PersonTest {
 
 
     @Test
-    public void testSetAgeZero() throws InvalidAgeException {
+    public void test_setAge_with_zero() throws InvalidAgeException {
         //testing age with zero
         InvalidAgeException e = assertThrows(InvalidAgeException.class, () -> {
             person.setAge(0);
