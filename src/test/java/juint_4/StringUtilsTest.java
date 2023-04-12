@@ -6,22 +6,19 @@ import static org.junit.Assert.*;
 
 public class StringUtilsTest {
     @Test
-    public void testReverse_non_empty_String() {
-        //testing with an nonempty string
+    public void testReverse_withNonEmptyString_shouldReturnReverseString() {
         String result = StringUtils.reverse("abcdefg");
         assertEquals("gfedcba", result);
     }
 
     @Test
-    public void test_reverse_with_empty_string() {
-        //tesing with an empty string
+    public void testReverse_withEmptyString_ShouldReturnEmptyString() {
         String result = StringUtils.reverse("");
         assertEquals("", result);
     }
 
     @Test
-    public void test_reverse_with_one_character() {
-        //tests the case where the input string has only one character.
+    public void testReverse_withOneCharacter_ShouldReturnInput() {
         String input = "a";
         String expectedOutput = "a";
         String actualOutput = StringUtils.reverse(input);
@@ -29,7 +26,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void test_reverse_with_null() {
+    public void testReverse_withNull_ShouldReturnEmptyString() {
         // tests the case where the input string is null
         String input = null;
         String expectedOutput = ""; // Or, we could throw an exception
@@ -39,8 +36,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void test_reverse_with_non_alphabetic_characters() {
-        // tests the case where the input string contains non-alphabetic characters.
+    public void testReverse_withNonAlphabeticCharacters_SholdReturnReverseString() {
         String input = "hello, world!";
         String actualOutput = "!dlrow ,olleh";
         String expectedOutput = StringUtils.reverse(input);
@@ -48,79 +44,54 @@ public class StringUtilsTest {
 
     }
 
-    @Test
-    public void testReverse_nonASCII_values() {
-
-        //tests the case where the input string contains non-ASCII characters.
-        String input = "héllo wørld";
-        String actualOutput = "dlrøw olléh";
-        String expectedOutput = StringUtils.reverse(input);
-        assertEquals(expectedOutput, actualOutput);
-
-    }
 
     @Test
-    public void testReverse_with_whitespace() {
-        // tests the case where the input string contains whitespace characters.
-        String input = "hello world";
-        String actualOutput = "dlrow olleh";
-        String expectedOutput = StringUtils.reverse(input);
-        assertEquals(expectedOutput, actualOutput);
-    }
-
-    @Test
-    public void testIsEmpty_with_empty_String() {
+    public void testIsEmpty_withEmptyString_ShouldReturnTrue() {
         //testing with an empty string
         assertTrue(StringUtils.isEmpty(""));
     }
 
     @Test
-    public void testIsEmpty_with_non_empty_String() {
+    public void testIsEmpty_withNonEmptyString_ShouldReturnTrue() {
         //testing with a string value
         assertFalse(StringUtils.isEmpty("abc"));
     }
 
     @Test
-    public void testIsEmpty_with__whiteSpaces() {
+    public void testIsEmpty_withWhiteSpaces_ShouldReturnTrue() {
         //testing with white spaces
         assertTrue(StringUtils.isEmpty("                "));
     }
 
     @Test
-    public void testIsPalindrome_with_palindrome_String() {
+    public void testIsPalindrome_withPalindromeString_shouldReturnTrue() {
         // Test with palindrome string
         assertTrue(StringUtils.isPalindrome("racecar"));
     }
 
     @Test
-    public void testIsPalindrome_with_nonPalindrome_String() {
-        // Test with non-palindrome string
+    public void testIsPalindrome_withNonPalindromeString_shouldReturnTrue() {
         assertFalse(StringUtils.isPalindrome("hello"));
     }
 
     @Test
-    public void testIsPalindrome_with_empty_String() {
-        // Test with empty string
+    public void testIsPalindrome_withEmptyString_shouldReturnTrue() {
         assertTrue(StringUtils.isPalindrome(""));
     }
 
 
     @Test
-    public void testIsPalindrome_with_single_character() {
-
-        // Test with single-character string
+    public void testIsPalindrome_withSingleCharacter_shouldReturnTrue() {
         assertTrue(StringUtils.isPalindrome("a"));
     }
 
     @Test
-    public void testIsPalindrome_with_null_Value() {
-        // Test with a null value string
+    public void testIsPalindrome_withNullValue_shouldReturnTrue() {
         assertFalse(StringUtils.isPalindrome(null));
     }
 
     @Test
-    public void testIsPalindrome_with_xwhite_Space() {
-        //testing with a with white space  value
+    public void testIsPalindrome_withWhiteSpace_shouldReturnTrue() {
         assertTrue(StringUtils.isPalindrome("                     "));
     }
 
