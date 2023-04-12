@@ -1,5 +1,6 @@
 package juint_4;
 
+import org.junit.After;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -89,6 +90,11 @@ public class StringUtilsTest {
     @Test
     public void testIsPalindrome_withWhiteSpace_shouldReturnTrue() {
         assertTrue(StringUtils.isPalindrome("                     "));
+    }
+
+    @After
+    public void tearDown(){
+        System.out.println("Test Passed!");
     }
 
 }
