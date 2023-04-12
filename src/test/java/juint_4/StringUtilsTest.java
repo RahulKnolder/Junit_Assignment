@@ -47,25 +47,21 @@ public class StringUtilsTest {
 
     @Test
     public void testIsEmpty_withEmptyString_ShouldReturnTrue() {
-        //testing with an empty string
         assertTrue(StringUtils.isEmpty(""));
     }
 
     @Test
     public void testIsEmpty_withNonEmptyString_ShouldReturnTrue() {
-        //testing with a string value
         assertFalse(StringUtils.isEmpty("abc"));
     }
 
     @Test
     public void testIsEmpty_withWhiteSpaces_ShouldReturnTrue() {
-        //testing with white spaces
         assertTrue(StringUtils.isEmpty("                "));
     }
 
     @Test
     public void testIsPalindrome_withPalindromeString_shouldReturnTrue() {
-        // Test with palindrome string
         assertTrue(StringUtils.isPalindrome("racecar"));
     }
 
