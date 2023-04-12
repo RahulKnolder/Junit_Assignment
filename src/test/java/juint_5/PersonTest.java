@@ -1,6 +1,7 @@
 package juint_5;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,38 +14,38 @@ public class PersonTest {
         person = new Person();
     }
 
+
     @Test
-    public void test_getName_with_notNullValues() {
-        //test getname with not null values
+    @DisplayName("Test getName() with null not value")
+    public void testGetName_withNotNullValues_shouldReturnInput() {
         person.setName("rahul");
         assertNotNull(person.getName());
     }
 
     @Test
-    public void testGetName_with_nullValue() {
-        // Test the getter method for a null value
+    @DisplayName("Test getName() with null value")
+    public void testGetName_withNUllValues_ShouldRetrunEmptyString() {
         person.setName(null);
         assertEquals("", person.getName());
-
     }
 
     @Test
-    public void test_getName_with_WhiteSpaces() {
-        //testing getname with white spaces
+    @DisplayName("Test getName() with WhiteSpaces ")
+    public void testGetName_withWhiteSpaces_shouldSetNameEmptyString() {
         person.setName("         ");
         assertEquals("", person.getName());
     }
 
     @Test
-    public void test_getAge_with_nonNullValue() throws InvalidAgeException {
-        // Test the getter method for a non-null value
+    @DisplayName("Test getAge() with non-null Value")
+    public void test_getAge_with_nonNullValue_shouldReturnTrue() throws InvalidAgeException {
         person.setAge(56);
         assertNotNull(person.getAge());
     }
 
     @Test
-    public void test_getAge_with_nullValue() throws InvalidAgeException {
-        // Test the getter method for a null value
+    @DisplayName("Test getAge() with null Value")
+    public void testGetAge_withNullValue_shouldReturnTrue() throws InvalidAgeException {
         InvalidAgeException e = assertThrows(InvalidAgeException.class, () -> {
             person.setAge(null);
         });
@@ -53,15 +54,15 @@ public class PersonTest {
 
 
     @Test
-    public void test_getEmail_with_nonNullValue() {
-        // Test the getEmail() method for a non-null value
+    @DisplayName("Test getEmail() with not null values")
+    public void testGetEmail_withNonNullValue_shouldReturnTrue() {
         person.setEmail("john.doe@example.com");
         assertNotNull(person.getEmail());
     }
 
     @Test
-    public void test_getEmail_with_nullValue() {
-        // Test the getEmail() method for a null value
+    @DisplayName("Test getEmail() with  null values")
+    public void testGetEmail_withNullValue_shouldSetEmailToEmptyString() {
         person.setEmail(null);
         String email = person.getEmail();
         assertEquals("", email);
@@ -69,28 +70,30 @@ public class PersonTest {
     }
 
     @Test
-    public void test_getEmail_with_validValue() {
-        //test for a valid value
+    @DisplayName("Test getEmail() with  valid values")
+    public void testGetEmail_WithValidValue_shouldSetEmailToValid() {
         person.setEmail("john.doe@example.com");
         assertEquals("john.doe@example.com", person.getEmail());
     }
 
     @Test
-    public void test_getEmail_with_invalidInput() {
-        //testing with invalidInput
+    @DisplayName("Test getEmail() with invalid values")
+    public void testGetEmail_withInvalidInput_shouldSetEmailToEmptyString() {
         person.setEmail("rahul@@gmai.com");
         assertEquals("", person.getEmail());
     }
 
     @Test
-    public void test_getEmail_with_whiteSpaces() {
-        //for white spaces
+    @DisplayName("Test getEmail() with whiteSpace")
+    public void testGetEmail_withWhiteSpaces_shouldSetEmailToEmptyString() {
         person.setEmail("   ");
         assertEquals("", person.getEmail());
     }
 
+
     @Test
-    public void test_age_with_negative_values() {
+    @DisplayName("Test SetAge() with negative values")
+    public void testSetAge_withNegativeValues_shouldThrowExceptiion() {
         InvalidAgeException e = assertThrows(InvalidAgeException.class, () -> {
             person.setAge(-10);
         });
@@ -99,8 +102,8 @@ public class PersonTest {
 
 
     @Test
-    public void test_setAge_with_zero() throws InvalidAgeException {
-        //testing age with zero
+    @DisplayName("Test setAge() with Zero values")
+    public void testSetAge_withZero_shouldThrowExceptiion() throws InvalidAgeException {
         InvalidAgeException e = assertThrows(InvalidAgeException.class, () -> {
             person.setAge(0);
         });
